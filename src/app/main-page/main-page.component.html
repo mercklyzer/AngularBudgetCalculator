@@ -1,0 +1,23 @@
+<div class="top-bar">
+    <h1>Budget Calculator</h1>
+</div>
+
+<section class="total-budget-section">
+    <h2 [ngClass]="{'green': total > 0, 'red': total < 0}">{{total}}</h2>
+</section>
+
+<section class="add-item-section">
+    <div class="add-item-container">
+        <app-add-item-form style="padding: 20px;" (formSubmit)="addItem($event)"></app-add-item-form>
+    </div>
+</section>
+
+<hr style="margin-top: 0;"/>
+
+<!-- pass the list of items here -->
+<app-budget-item-list [budgetItems]="budgetItems" (showModal)="showModal($event)" (delete)="deleteItem($event)"></app-budget-item-list>
+
+
+<!-- Modal -->
+<app-edit-item-modal [item]="itemOnQueue" [isShowModal]="isShowModal" (editItem)="editItem($event)"></app-edit-item-modal>
+

@@ -1,0 +1,8 @@
+<div class="background" *ngIf="isShowModal"></div>
+
+<div class="modal-container" *ngIf="isShowModal">
+    <h1>Edit</h1>
+    <app-add-item-form [item]="item" [isNewItem]="false"
+        (formEdit)="onEditItem($event)"
+    ></app-add-item-form>
+</div>
